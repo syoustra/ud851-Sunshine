@@ -29,7 +29,7 @@
     <!--COMPLETED (4) Set the text size to 20sp-->
     <!--COMPLETED (5) Remove all attributes with the word constraint in them-->
     <!--COMPLETED (6) Remove the default text from the TextView-->
-    
+
    <ScrollView
        android:layout_width="match_parent"
        android:layout_height="wrap_content">

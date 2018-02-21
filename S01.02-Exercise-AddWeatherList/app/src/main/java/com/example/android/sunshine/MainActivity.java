@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         mWeatherTextView = (TextView) findViewById(R.id.tv_weather_data);
 
         // COMPLETED (3) Create an array of Strings that contain fake weather data
-        String [] fakeWeather = {"hot", "cold", "questionaable", "kentucky"};
+        String [] fakeWeather = {"hot", "cold", "questionaable", "kentucky", "HzHtHmd"};
 
         // COMPLETED (4) Append each String from the fake weather data array to the TextView
         for (String weather : fakeWeather) {
