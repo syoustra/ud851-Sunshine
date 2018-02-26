@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     // COMPLETED (5) Create a class that extends AsyncTask to perform network requests
-    public class FetchWeatherTask extends AsyncTask<String, Void, String> {
+    public class FetchWeatherTask extends AsyncTask<String, Void, String[]> {
 
         // COMPLETED (6) Override the doInBackground method to perform your network requests
                                        // BOTH OF THESE SECTIONS ARE TAKEN COMPLETELY FROM THE SOLUTION CODE
