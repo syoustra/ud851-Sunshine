@@ -109,6 +109,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.forecast, menu);
+                        // SOLUTION HAS THE FOLLOWING CODE:
+                        //                MenuInflater inflater = getMenuInflater();
+                        //                  inflater.inflate(R.menu.forecast, menu);
+
         return true;
     }
 
@@ -118,10 +122,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int itemThatWasClickedId = item.getItemId();
+        int itemThatWasClickedId = item.getItemId();            // SOLUTION JUST USED int id
         if (itemThatWasClickedId == R.id.action_refresh) {
             mWeatherTextView.setText("");
             loadWeatherData();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
