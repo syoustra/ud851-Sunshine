@@ -8,7 +8,8 @@ import android.widget.TextView;
  * Created by stephanieyoustra on 3/5/18.
  */
 
-public class ForecastAdapter {
+public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ForecastAdapterViewHolder>{
+    private String[] mWeatherData;
 
     public class ForecastAdapterViewHolder extends RecyclerView.ViewHolder {
         public final TextView mWeatherTextView;
