@@ -69,9 +69,12 @@ public class MainActivity extends AppCompatActivity {
     // Within ForecastAdapterViewHolder ///////////////////////////////////////////////////////////
 
 
-    // TODO (24) Override onCreateViewHolder
-    // TODO (25) Within onCreateViewHolder, inflate the list item xml into a view
-    // TODO (26) Within onCreateViewHolder, return a new ForecastAdapterViewHolder with the above view passed in as a parameter
+    // COMPLETED (24) Override onCreateViewHolder
+    // COMPLETED (25) Within onCreateViewHolder, inflate the list item xml into a view
+    // COMPLETED (26) Within onCreateViewHolder, return a new ForecastAdapterViewHolder with the above view passed in as a parameter
+
+
+
 
     // TODO (27) Override onBindViewHolder
     // TODO (28) Set the text of the TextView to the weather for this list item's position
