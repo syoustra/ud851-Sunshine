@@ -42,4 +42,13 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
         String currentItemWeather = mWeatherData[position];                     //COMES FROM SOLUTION CODE
         ForecastAdapterViewHolder.mWeatherTextView().setText(currentItemWeather);
     }
+
+    @Override
+    public int getItemCount() {
+        if (mWeatherData == null) {
+            return 0;
+        } else {
+            return mWeatherData.length;
+        }
+    }
 }
