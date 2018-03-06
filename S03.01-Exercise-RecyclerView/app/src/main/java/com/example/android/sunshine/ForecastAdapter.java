@@ -19,7 +19,7 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
 
         public ForecastAdapterViewHolder(View view) {
             super(view);
-            mWeatherTextView = (TextView) view.findViewById(R.id.tv_weather_data)
+            mWeatherTextView = (TextView) view.findViewById(R.id.tv_weather_data);
         }
 
     }
