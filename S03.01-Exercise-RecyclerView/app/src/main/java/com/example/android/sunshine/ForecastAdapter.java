@@ -13,6 +13,9 @@ import android.widget.TextView;
 
 public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ForecastAdapterViewHolder>{
     private String[] mWeatherData;
+    public ForecastAdapter() {
+
+    }
 
     public class ForecastAdapterViewHolder extends RecyclerView.ViewHolder {
         public final TextView mWeatherTextView;
@@ -52,8 +55,9 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
         }
     }
 
-    private void setWeatherData(String[] weatherData) {                                 //COMES FROM SOLUTION CODE
+    public void setWeatherData(String[] weatherData) {                                 //COMES FROM SOLUTION CODE
         mWeatherData = weatherData;
         notifyDataSetChanged();
     }
+
 }
