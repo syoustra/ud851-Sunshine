@@ -36,4 +36,10 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
 
         return viewHolder;
     }
+
+    @Override
+    public void onBindViewHolder(ForecastAdapterViewHolder holder, int position) {
+        String currentItemWeather = mWeatherData[position];                     //COMES FROM SOLUTION CODE
+        ForecastAdapterViewHolder.mWeatherTextView().setText(currentItemWeather);
+    }
 }
