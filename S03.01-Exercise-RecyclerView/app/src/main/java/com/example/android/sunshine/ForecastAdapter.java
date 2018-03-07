@@ -35,8 +35,7 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
         boolean shouldAttachToParentImmediately = false;
 
         View view = inflater.inflate(layoutIdForListItem, viewGroup, shouldAttachToParentImmediately);
-        ForecastAdapterViewHolder viewHolder = new ForecastAdapterViewHolder(view);
-
+        ForecastAdapterViewHolder viewHolder = new ForecastAdapterViewHolder(view);         //SOLUTION COMBINES THESE TWO LINES INTO ONE
         return viewHolder;
     }
 
@@ -48,7 +47,7 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
 
     @Override
     public int getItemCount() {
-        if (mWeatherData == null) {
+        if (mWeatherData == null) {                                         //SOLUTION HAS if (null==weatherData), no {} or else
             return 0;
         } else {
             return mWeatherData.length;
