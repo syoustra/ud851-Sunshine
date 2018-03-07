@@ -31,7 +31,7 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
     private String[] mWeatherData;
 
     // COMPLETED (3) Create a final private ForecastAdapterOnClickHandler called mClickHandler
-    final private ForecastAdapterOnClickHandler mClickHandler;
+    private final ForecastAdapterOnClickHandler mClickHandler;                          //SWITCHED SEQUENCE TO MATCH SOLUTION
 
     // COMPLETED (1) Add an interface called ForecastAdapterOnClickHandler
     // COMPLETED (2) Within that interface, define a void method that access a String as a parameter
@@ -48,7 +48,7 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
     /**
      * Cache of the children views for a forecast list item.
      */
-    public class ForecastAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ForecastAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {    //SOLUTION HAS NO 'VIEW'
         public final TextView mWeatherTextView;
 
         public ForecastAdapterViewHolder(View view) {
@@ -63,7 +63,7 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
         @Override
         public void onClick(View v) {
             int clickedPosition = getAdapterPosition();             //LINE FROM SOLUTION
-            String clickedWeather = mWeatherData[clickedPosition]   //LINE FROM SOLUTION
+            String clickedWeather = mWeatherData[clickedPosition];   //LINE FROM SOLUTION
             mClickHandler.onClick(clickedWeather);
         }
     }
