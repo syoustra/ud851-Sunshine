@@ -15,6 +15,7 @@
  */
 package com.example.android.sunshine;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -113,10 +114,12 @@ public class MainActivity extends AppCompatActivity implements ForecastAdapter.F
 
 
     @Override
-    public void onClick(String clickedWeather) {
-        Toast mToast;
-        String toastMessage = "The weather is " + clickedWeather;
-        mToast = Toast.makeText(this, toastMessage,Toast.LENGTH_LONG);
+    public void onClick(String clickedWeather) {                            //SOLUTION CODE; NOT SURE WHY MINE DIDN'T WORK
+        Context context = this;
+        Toast.makeText(context, clickedWeather, Toast.LENGTH_LONG).show();
+//        Toast mToast;
+//        String toastMessage = "The weather is " + clickedWeather;
+//        mToast = Toast.makeText(this, toastMessage,Toast.LENGTH_LONG).show();
     }
 
     /**
