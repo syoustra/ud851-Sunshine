@@ -9,6 +9,7 @@ public class DetailActivity extends AppCompatActivity {
 
     private static final String FORECAST_SHARE_HASHTAG = " #SunshineApp";
     private TextView mDisplayWeather;
+    private String mWeatherToDisplay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,13 +17,15 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
 
         // TODO (2) Display the weather forecast that was passed from MainActivity
-        mDisplayWeather = (TextView) findViewById(R.id.tv_weather_data);
+        mDisplayWeather = (TextView) findViewById(R.id.tv_display_weather);     //I HADN'T INCLUDED THIS TEXTVIEW
 
         Intent originatingIntent = getIntent();
-        if (originatingIntent.hasExtra(Intent.EXTRA_TEXT)) {
-            String weatherToDisplay = originatingIntent.getStringExtra(Intent.EXTRA_TEXT);
-            mDisplayWeather.setText(weatherToDisplay);
+        if (originatingIntent != null) {                                        //SOLUTION ADDED IN THIS LINE
+            if (originatingIntent.hasExtra(Intent.EXTRA_TEXT)) {
+                mWeatherToDisplay = originatingIntent.getStringExtra(Intent.EXTRA_TEXT);
+                mDisplayWeather.setText(mWeatherToDisplay);
 
+            }
         }
     }
 }
