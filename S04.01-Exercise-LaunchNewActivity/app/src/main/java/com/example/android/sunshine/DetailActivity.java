@@ -1,4 +1,4 @@
-package com.example.android.sunshine.utilities;
+package com.example.android.sunshine;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
