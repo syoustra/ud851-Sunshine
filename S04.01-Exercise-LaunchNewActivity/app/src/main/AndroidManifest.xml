@@ -36,7 +36,12 @@
         </activity>
         <!-- TODO (4) Configure DetailActivity's up button functionality -->
 
-        <activity android:name=".utilities.DetailActivity"></activity>
+        <activity android:name=".utilities.DetailActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"></meta-data>
+        </activity>
     </application>
 
 </manifest>
