@@ -37,13 +37,29 @@ public class DetailActivity extends AppCompatActivity {
     // TODO (4) Display the menu and implement the forecast sharing functionality
 
 
-    @Override
+                                                                               //NEXT METHOD FROM SOLUTION
+//                    private Intent createShareForecastIntent() {
+//                        Intent shareIntent = ShareCompat.IntentBuilder.from(this)
+//                                .setType("text/plain")
+//                                .setText(mForecast + FORECAST_SHARE_HASHTAG)
+//                                .getIntent();
+//                        return shareIntent;
+//                    }
+
+                                                                            //The Solution code here runs the same, but looks a little different
+
+        @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.share, menu);
+                                                                            //NEXT TWO LINES FROM SOLUTION
+//                MenuItem menuItem = menu.findItem(R.id.action_share);
+//                menuItem.setIntent(createShareForecastIntent());
 
         return true;
     }
 
+                                                                            //SOLUTION CODE DOES NOT HAVE THESE LAST TWO METHODs
+                                                                            //THIS APPROACH, THOUGH, LOOKS ESSENTIALLY THE SAME
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();

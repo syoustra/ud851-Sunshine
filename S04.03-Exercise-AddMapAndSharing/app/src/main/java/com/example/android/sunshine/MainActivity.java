@@ -213,7 +213,7 @@ public class MainActivity extends AppCompatActivity implements ForecastAdapterOn
 
     private void openMapLocation(){
         String address = "1600 Amphitheatre Way, CA";
-
+                                                                                    //SOLUTION USES Uri.parse NOT Uri.Builder
         Uri.Builder builder = new Uri.Builder();
         builder.scheme("geo")
                 .path("0,0")
@@ -225,7 +225,7 @@ public class MainActivity extends AppCompatActivity implements ForecastAdapterOn
         intent.setData(addressUri);
         if(intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
-        } else {                                                            //ELSE ESPECIALLY COMES FROM SOLUTION
+        } else {                                                                     //ELSE ESPECIALLY COMES FROM SOLUTION
             Log.d(TAG, "Couldn't call " + addressUri.toString() + " , no receiving apps found.");
         }
     }

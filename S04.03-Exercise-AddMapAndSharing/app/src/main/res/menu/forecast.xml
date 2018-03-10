@@ -25,6 +25,8 @@
         android:title="@string/action_refresh"
         app:showAsAction="ifRoom"/>
     <!--TODO (1) Add a menu item to open the map-->
+
+                                                                <!-- SOLUTION HAS TITLE AS STRING, NO ORDER IN CATEGORY, AND SHOW never -->
     <item
         android:id="@+id/open_map"
         android:orderInCategory="2"
