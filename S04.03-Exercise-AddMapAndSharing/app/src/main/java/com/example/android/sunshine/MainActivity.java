@@ -211,6 +211,25 @@ public class MainActivity extends AppCompatActivity implements ForecastAdapterOn
         return true;
     }
 
+    private void openMapLocation(){
+        String address = "1600 Amphitheatre Way, CA";
+
+        Uri.Builder builder = new Uri.Builder();
+        builder.scheme("geo")
+                .path("0,0")
+                .query(address);
+        Uri addressUri = builder.build();
+
+
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(addressUri);
+        if(intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        } else {                                                            //ELSE ESPECIALLY COMES FROM SOLUTION
+            Log.d(TAG, "Couldn't call " + addressUri.toString() + " , no receiving apps found.");
+        }
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -222,6 +241,11 @@ public class MainActivity extends AppCompatActivity implements ForecastAdapterOn
         }
 
         // TODO (2) Launch the map when the map menu item is clicked
+        if (id == R.id.open_map) {
+            openMapLocation();
+            return true;
+
+        }
 
         return super.onOptionsItemSelected(item);
     }
