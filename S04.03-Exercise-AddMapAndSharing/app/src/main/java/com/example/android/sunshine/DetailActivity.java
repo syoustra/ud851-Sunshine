@@ -2,9 +2,11 @@ package com.example.android.sunshine;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.ShareCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 public class DetailActivity extends AppCompatActivity {
@@ -40,5 +42,27 @@ public class DetailActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.share, menu);
 
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_share) {
+            String infoToBeShared = mForecast;
+            shareText(mForecast);
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void shareText(String textToBeShared) {
+        String mimeType = "text/plain";
+        String chooserTitle = "How would you like to share this?";
+        ShareCompat.IntentBuilder.from(this)
+                .setChooserTitle(chooserTitle)
+                .setType(mimeType)
+                .setText(textToBeShared)
+                .startChooser();
     }
 }
