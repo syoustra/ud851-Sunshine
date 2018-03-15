@@ -42,7 +42,7 @@ import com.example.android.sunshine.utilities.SunshineWeatherUtils;
 
 import java.net.URL;
 
-// TODO (1) Implement the proper LoaderCallbacks interface and the methods of that interface
+// COMPLETED (1) Implement the proper LoaderCallbacks interface and the methods of that interface
                                                             // IF YOU PAY ATTENTION WHEN AUTO-SELECT, THERE'S OPTION FOR v4 import
 public class MainActivity extends AppCompatActivity implements
         ForecastAdapter.ForecastAdapterOnClickHandler,
@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements
          */
         mLoadingIndicator = (ProgressBar) findViewById(R.id.pb_loading_indicator);
 
-        // TODO (7) Remove the code for the AsyncTask and initialize the AsyncTaskLoader
+        // COMPLETED (7) Remove the code for the AsyncTask and initialize the AsyncTaskLoader
         /* Once all of our views are setup, we can load the weather data. */
         int loaderId = FORECAST_LOADER_ID;
 
@@ -119,21 +119,9 @@ public class MainActivity extends AppCompatActivity implements
     }
 
 
-    //************************************************************************************************************
-//    /**
-//     * This method will get the user's preferred location for weather, and then tell some
-//     * background method to get the weather data in the background.
-//     */
-//    private void loadWeatherData() {
-//        showWeatherDataView();
-//
-//        String location = SunshinePreferences.getPreferredWeatherLocation(this);
-//        new FetchWeatherTask().execute(location);
-//    }
-    //************************************************************************************************************
 
-    // TODO (2) Within onCreateLoader, return a new AsyncTaskLoader that looks a lot like the existing FetchWeatherTask.
-    // TODO (3) Cache the weather data in a member variable and deliver it in onStartLoading.
+    // COMPLETED (2) Within onCreateLoader, return a new AsyncTaskLoader that looks a lot like the existing FetchWeatherTask.
+    // COMPLETED (3) Cache the weather data in a member variable and deliver it in onStartLoading.
 
 
     @Override
@@ -181,7 +169,7 @@ public class MainActivity extends AppCompatActivity implements
         };
     }
 
-    // TODO (4) When the load is finished, show either the data or an error message if there is no data
+    // COMPLETED (4) When the load is finished, show either the data or an error message if there is no data
 
     @Override
     public void onLoadFinished(Loader<String[]> loader, String[] data) {
@@ -265,77 +253,7 @@ public class MainActivity extends AppCompatActivity implements
         mErrorMessageDisplay.setVisibility(View.VISIBLE);
     }
 
-    // TODO (6) Remove any and all code from MainActivity that references FetchWeatherTask
-//    public class FetchWeatherTask extends AsyncTask<String, Void, String[]> {
-//
-//        @Override
-//        protected void onPreExecute() {
-//            super.onPreExecute();
-//            mLoadingIndicator.setVisibility(View.VISIBLE);
-//        }
-//
-//        @Override
-//        protected String[] doInBackground(String... params) {
-//
-//            /* If there's no zip code, there's nothing to look up. */
-//            if (params.length == 0) {
-//                return null;
-//            }
-//
-//            String location = params[0];
-//            URL weatherRequestUrl = NetworkUtils.buildUrl(location);
-//
-//            try {
-//                String jsonWeatherResponse = NetworkUtils
-//                        .getResponseFromHttpUrl(weatherRequestUrl);
-//
-//                String[] simpleJsonWeatherData = OpenWeatherJsonUtils
-//                        .getSimpleWeatherStringsFromJson(MainActivity.this, jsonWeatherResponse);
-//
-//                return simpleJsonWeatherData;
-//
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//                return null;
-//            }
-//        }
-//
-//        @Override
-//        protected void onPostExecute(String[] weatherData) {
-//            mLoadingIndicator.setVisibility(View.INVISIBLE);
-//            if (weatherData != null) {
-//                showWeatherDataView();
-//                mForecastAdapter.setWeatherData(weatherData);
-//            } else {
-//                showErrorMessage();
-//            }
-//        }
-//    }
-//
-//    /**
-//     * This method uses the URI scheme for showing a location found on a
-//     * map. This super-handy intent is detailed in the "Common Intents"
-//     * page of Android's developer site:
-//     *
-//     * @see <a"http://developer.android.com/guide/components/intents-common.html#Maps">
-//     *
-//     * Hint: Hold Command on Mac or Control on Windows and click that link
-//     * to automagically open the Common Intents page
-//     */
-//    private void openLocationInMap() {
-//        String addressString = "1600 Ampitheatre Parkway, CA";
-//        Uri geoLocation = Uri.parse("geo:0,0?q=" + addressString);
-//
-//        Intent intent = new Intent(Intent.ACTION_VIEW);
-//        intent.setData(geoLocation);
-//
-//        if (intent.resolveActivity(getPackageManager()) != null) {
-//            startActivity(intent);
-//        } else {
-//            Log.d(TAG, "Couldn't call " + geoLocation.toString()
-//                    + ", no receiving apps installed!");
-//        }
-//    }
+    // COMPLETED (6) Remove any and all code from MainActivity that references FetchWeatherTask
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -351,7 +269,7 @@ public class MainActivity extends AppCompatActivity implements
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        // TODO (5) Refactor the refresh functionality to work with our AsyncTaskLoader
+        // COMPLETED (5) Refactor the refresh functionality to work with our AsyncTaskLoader
         if (id == R.id.action_refresh) {
             invalidateData();
             getSupportLoaderManager().restartLoader(FORECAST_LOADER_ID, null, this);
