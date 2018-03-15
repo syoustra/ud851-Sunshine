@@ -166,7 +166,7 @@ public class MainActivity extends AppCompatActivity implements
             }
 
             /**
-             * This is the method of the AsyncTaskLoader that will load and parse the JSON data
+             * This is the method of the AsyncTaskLoader that will loadnl and parse the JSON data
              * from OpenWeatherMap in the background.
              *
              * @return Weather data from OpenWeatherMap as an array of Strings.
