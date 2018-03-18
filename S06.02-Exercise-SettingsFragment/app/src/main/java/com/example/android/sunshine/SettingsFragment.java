@@ -12,7 +12,7 @@ import android.support.v7.preference.PreferenceScreen;
  * Created by stephanieyoustra on 3/18/18.
  */
 
-public class SettingsFragment extends PreferenceFragmentCompat {
+public class SettingsFragment extends PreferenceFragmentCompat implements SharedPreferences.OnSharedPreferenceChangeListener {
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.pref_general);
@@ -43,6 +43,17 @@ public class SettingsFragment extends PreferenceFragmentCompat {
             }
         } else {                                                                //ALSO FROM SOLUTION
             preference.setSummary(stringValue);
+        }
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        Preference preference = findPreference(key);
+        if (null != preference) {
+            if(!(preference instanceof CheckBoxPreference)) {
+                String value = sharedPreferences.getString(preference.getKey(), "");
+                setPreferenceSummary(preference, value);
+            }
         }
     }
 }
