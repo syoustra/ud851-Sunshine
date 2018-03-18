@@ -17,6 +17,7 @@ package com.example.android.sunshine;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
@@ -41,8 +42,8 @@ import java.net.URL;
 
 public class MainActivity extends AppCompatActivity implements
         ForecastAdapter.ForecastAdapterOnClickHandler,
-        // TODO (3) Implement OnSharedPreferenceChangeListener on MainActivity
-        LoaderCallbacks<String[]> {
+        // COMPLETED (3) Implement OnSharedPreferenceChangeListener on MainActivity
+        LoaderCallbacks<String[]>, SharedPreferences.OnSharedPreferenceChangeListener {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -55,7 +56,8 @@ public class MainActivity extends AppCompatActivity implements
 
     private static final int FORECAST_LOADER_ID = 0;
 
-    // TODO (4) Add a private static boolean flag for preference updates and initialize it to false
+    // COMPLETED (4) Add a private static boolean flag for preference updates and initialize it to false
+    private static boolean PREFERENCES_HAVE_BEEN_UPDATED = false;                   //SOLUTION SHOWED THE ALL_CAPS
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -363,6 +365,11 @@ public class MainActivity extends AppCompatActivity implements
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+
     }
 
     // TODO (5) Override onSharedPreferenceChanged to set the preferences flag to true
