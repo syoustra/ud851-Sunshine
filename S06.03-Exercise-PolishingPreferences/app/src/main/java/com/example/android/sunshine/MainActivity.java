@@ -369,7 +369,7 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-
+        PREFERENCES_HAVE_BEEN_UPDATED = true;
     }
 
     // TODO (5) Override onSharedPreferenceChanged to set the preferences flag to true
