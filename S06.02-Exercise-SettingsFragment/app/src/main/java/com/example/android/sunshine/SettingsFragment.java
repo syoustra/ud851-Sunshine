@@ -14,8 +14,10 @@ import android.support.v7.preference.PreferenceScreen;
  */
 
 public class SettingsFragment extends PreferenceFragmentCompat implements SharedPreferences.OnSharedPreferenceChangeListener {
+
+                                                                                //SOLUTION HAS setPrefSummary BEFORE onCreatePref
     @Override
-    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {    //SOLUTION HAS Bundle bundle, String s
         addPreferencesFromResource(R.xml.pref_general);
 
         SharedPreferences sharedPreferences = getPreferenceScreen().getSharedPreferences();
@@ -25,7 +27,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
         for (int i = 0; i < count; i++) {
             Preference p = prefScreen.getPreference(i);
             if (!(p instanceof CheckBoxPreference)) {
-                String value = sharedPreferences.getString(p.getKey(), null);
+                String value = sharedPreferences.getString(p.getKey(), null);       //SOLUTION HAS defValue: ""
                 setPreferenceSummary(p, value);
             }
         }
@@ -33,7 +35,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
     }
 
     private void setPreferenceSummary(Preference preference, Object value) {
-        String stringValue = value.toString();                                   //THESE TWO FROM SOLUTION
+        String stringValue = value.toString();                                        //THESE TWO FROM SOLUTION
         String key = preference.getKey();
 
         if (preference instanceof ListPreference) {
@@ -42,16 +44,19 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
             if (prefIndex >= 0) {
                 listPreference.setSummary(listPreference.getEntries()[prefIndex]);
             }
-        } else {                                                                //ALSO FROM SOLUTION
+        } else {                                                                         //ALSO FROM SOLUTION
             preference.setSummary(stringValue);
         }
     }
 
+
+                                                                                //SOLUTION SEQUENCE IS onStop, onStart, onSharedPrefChange
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         Preference preference = findPreference(key);
         if (null != preference) {
             if(!(preference instanceof CheckBoxPreference)) {
+                                    //SOLUTION COMBINES TO setPreferenceSummary(preference, sharedPreferences.getString(key, ""));
                 String value = sharedPreferences.getString(preference.getKey(), "");
                 setPreferenceSummary(preference, value);
             }

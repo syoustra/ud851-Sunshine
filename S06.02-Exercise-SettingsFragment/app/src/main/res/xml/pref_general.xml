@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+                                                            <!-- SOLUTION INCLUDES WIDTH/HEIGHT FOR PrefScreen -->
+
+                                                            <!-- SOLUTION ADD inputType="text" AND singleLine="true" -->
     <EditTextPreference
         android:defaultValue="@string/pref_location_default"
         android:key="@string/pref_location_key"
         android:title="@string/pref_location_label"
         />
 
+                                                                     <!-- SOLUTION DEFAULTS TO METRIC -->
     <ListPreference
         android:defaultValue="@string/pref_units_imperial"
         android:entryValues="@array/pref_units_values"
