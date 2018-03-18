@@ -22,7 +22,7 @@
         android:title="@string/action_share"
         app:showAsAction="always"/>
 
-    <!--TODO (5) Add a Settings option to the detail menu-->
+    <!--COMPLETED (5) Add a Settings option to the detail menu-->
                                                                         <!-- SOLUTION ADDED orderInCategory=100 -->
     <item
         android:id="@+id/action_settings"
