@@ -336,7 +336,7 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     protected void onStart() {
         super.onStart();
-        if (PREFERENCES_HAVE_BEEN_UPDATED == true) {
+        if (PREFERENCES_HAVE_BEEN_UPDATED) {                    //SOLUTION ALSO HAS Log.d(TAG, "onStart: preferences were updated");
             getSupportLoaderManager().restartLoader(FORECAST_LOADER_ID, null, this);
             PREFERENCES_HAVE_BEEN_UPDATED = false;
         }
@@ -387,7 +387,7 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {   //SOLUTION HAS String s
         PREFERENCES_HAVE_BEEN_UPDATED = true;
     }
 
