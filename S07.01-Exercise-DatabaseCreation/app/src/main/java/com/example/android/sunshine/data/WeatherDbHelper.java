@@ -41,7 +41,7 @@ public class WeatherDbHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         final String SQL_CREATE_WEATHER_TABLE = "CREATE TABLE " +
-                DATABASE_NAME + " (" +
+                WeatherContract.WeatherEntry.TABLE_NAME + " (" +
                 WeatherContract.WeatherEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 WeatherContract.WeatherEntry.COLUMN_DATE + "INTEGER, " +
                 WeatherContract.WeatherEntry.COLUMN_WEATHER_ID + "INTEGER, " +
