@@ -16,11 +16,16 @@
 package com.example.android.sunshine;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.android.sunshine.data.WeatherContract;
+import com.example.android.sunshine.utilities.SunshineDateUtils;
+import com.example.android.sunshine.utilities.SunshineWeatherUtils;
 
 /**
  * {@link ForecastAdapter} exposes a list of weather forecasts
@@ -31,6 +36,7 @@ class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ForecastAdapt
     //  TODO (14) Remove the mWeatherData declaration and the setWeatherData method
     private String[] mWeatherData;
     //  TODO (1) Declare a private final Context field called mContext
+    private final Context mContext;
 
     /*
      * Below, we've defined an interface to handle clicks on items within this Adapter. In the
@@ -48,7 +54,9 @@ class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ForecastAdapt
     }
 
 //  TODO (2) Declare a private Cursor field called mCursor
+    private Cursor mCursor;
 //  TODO (3) Add a Context field to the constructor and store that context in mContext
+
 
     /**
      * Creates a ForecastAdapter.
@@ -56,8 +64,9 @@ class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ForecastAdapt
      * @param clickHandler The on-click handler for this adapter. This single handler is called
      *                     when an item is clicked.
      */
-    public ForecastAdapter(ForecastAdapterOnClickHandler clickHandler) {
+    public ForecastAdapter(ForecastAdapterOnClickHandler clickHandler, Context context) {
         mClickHandler = clickHandler;
+        mContext = context;
     }
 
     /**
@@ -96,9 +105,24 @@ class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ForecastAdapt
 //      TODO (5) Delete the current body of onBindViewHolder
 //      TODO (6) Move the cursor to the appropriate position
 //      TODO (7) Generate a weather summary with the date, description, high and low
-        String weatherForThisDay = mWeatherData[position];
+        mCursor.moveToPosition(position);
+
+        long dateInMillis = mCursor.getLong(MainActivity.INDEX_WEATHER_DATE);
+        String dateString = SunshineDateUtils.getFriendlyDateString(mContext, dateInMillis, true);
+
+        int weatherId = mCursor.getInt(MainActivity.INDEX_WEATHER_CONDITION_ID);
+        String description = SunshineWeatherUtils.getStringForWeatherCondition(mContext, weatherId);
+
+        double maxTemp = mCursor.getDouble(MainActivity.INDEX_WEATHER_MAX_TEMP);
+        double minTemp = mCursor.getDouble(MainActivity.INDEX_WEATHER_MIN_TEMP);
+        String temperatureRange = SunshineWeatherUtils.formatHighLows(mContext, maxTemp, minTemp);
+
+        String weatherSummary = dateString + ": " + description + " ~ " + temperatureRange;
+
+
 //      TODO (8) Display the summary that you created above
-        forecastAdapterViewHolder.weatherSummary.setText(weatherForThisDay);
+        forecastAdapterViewHolder.weatherSummary.setText(weatherSummary);
+
     }
 
     /**
