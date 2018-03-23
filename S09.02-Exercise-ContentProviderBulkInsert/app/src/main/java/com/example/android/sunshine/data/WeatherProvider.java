@@ -125,7 +125,7 @@ public class WeatherProvider extends ContentProvider {
         return true;
     }
 
-//  TODO (1) Implement the bulkInsert method
+//  COMPLETED (1) Implement the bulkInsert method
 
     /**
      * Handles requests to insert a set of new rows. In Sunshine, we are only going to be
@@ -143,7 +143,7 @@ public class WeatherProvider extends ContentProvider {
     public int bulkInsert(@NonNull Uri uri, @NonNull ContentValues[] values) {
         final SQLiteDatabase db = mOpenHelper.getWritableDatabase();
 
-//          TODO (2) Only perform our implementation of bulkInsert if the URI matches the CODE_WEATHER code
+//          COMPLETED (2) Only perform our implementation of bulkInsert if the URI matches the CODE_WEATHER code
         switch (sUriMatcher.match(uri)) {
             case CODE_WEATHER:
                 db.beginTransaction();
@@ -167,13 +167,13 @@ public class WeatherProvider extends ContentProvider {
                     db.endTransaction();
                 }
 
-//              TODO (3) Return the number of rows inserted from our implementation of bulkInsert
+//              COMPLETED (3) Return the number of rows inserted from our implementation of bulkInsert
                 if (rowsInserted > 0) {
                     getContext().getContentResolver().notifyChange(uri, null);
                 }
                 return rowsInserted;
 
-//          TODO (4) If the URI does match match CODE_WEATHER, return the super implementation of bulkInsert
+//          COMPLETED (4) If the URI does match match CODE_WEATHER, return the super implementation of bulkInsert
         default:
             return super.bulkInsert(uri, values);
         }
