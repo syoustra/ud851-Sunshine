@@ -57,6 +57,8 @@
             android:authorities="com.example.android.sunshine"
             android:name="com.example.android.sunshine.data.WeatherProvider"
             android:exported="false" />
+                                                        <!-- SOLUTION HAS AUTHORITY NAME SAVED AS STRING RESOURCE,
+                                                        NAME STARTS WITH .data -->
 
     </application>
 </manifest>

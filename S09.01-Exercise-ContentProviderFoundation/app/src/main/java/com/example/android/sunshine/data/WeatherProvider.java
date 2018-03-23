@@ -44,11 +44,14 @@ public class WeatherProvider extends ContentProvider {
 //  TODO (7) Instantiate a static UriMatcher using the buildUriMatcher method
 
     WeatherDbHelper mOpenHelper;
-    public static final UriMatcher sUriMatcher = buildUriMatcher();
+    private static final UriMatcher sUriMatcher = buildUriMatcher();
+    private WeatherDbHelper mOpenHelper;                                                    //FROM SOLUTION
+
 
 //  TODO (6) Write a method called buildUriMatcher where you match URI's to their numeric ID
     public static UriMatcher buildUriMatcher() {
-        UriMatcher uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
+        UriMatcher uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);                        //SOLUTION HAS final
+                                                                    //SOLUTION ALSO MAKES final String authority FOR AUTHORITY
 
         uriMatcher.addURI(WeatherContract.CONTENT_AUTHORITY, WeatherContract.PATH_WEATHER, CODE_WEATHER);
         uriMatcher.addURI(WeatherContract.CONTENT_AUTHORITY, WeatherContract.PATH_WEATHER + "/#", CODE_WEATHER_WITH_DATE);
@@ -60,7 +63,7 @@ public class WeatherProvider extends ContentProvider {
     @Override
     public boolean onCreate() {
 //      TODO (2) Within onCreate, instantiate our mOpenHelper
-        Context context = getContext();
+        Context context = getContext();                                                 //SOLUTION COMBINES THESE TWO LINES
         mOpenHelper = new WeatherDbHelper(context);
 
 //      TODO (3) Return true from onCreate to signify success performing setup
@@ -106,22 +109,22 @@ public class WeatherProvider extends ContentProvider {
                         String[] selectionArgs, String sortOrder) {
 
         Cursor retCursor;
-        int match = sUriMatcher.match(uri);
-        final SQLiteDatabase db = mOpenHelper.getReadableDatabase();
+        int match = sUriMatcher.match(uri);                                         //SOLUTION DOES NOT USE SEPARATE VARIABLE
+        final SQLiteDatabase db = mOpenHelper.getReadableDatabase();                //SOLUTION DOES NOT USE SEPARATE VARIABLE
 
 //      TODO (9) Handle queries on both the weather and weather with date URI
         switch (match) {
-            case CODE_WEATHER:
+            case CODE_WEATHER:                                                      //SOLUTION SWITCHES ORDER; CODE IN { }
                 retCursor = db.query(WeatherContract.WeatherEntry.TABLE_NAME,
                         projection, selection, selectionArgs, null, null, sortOrder);
                 break;
 
             case CODE_WEATHER_WITH_DATE:
-                String id = uri.getPathSegments(1);
+                String id = uri.getPathSegments(1);                                 //SOLUTION USES .getLastPathSegment()
                 String[] mSelectionArgs = new String[] {id};
 
-                retCursor = db.query(WeatherContract.WeatherEntry.TABLE_NAME,
-                        WeatherContract.WeatherEntry.COLUMN_DATE, "?=", mSelectionArgs,
+                retCursor = db.query(WeatherContract.WeatherEntry.TABLE_NAME, projection,
+                        WeatherContract.WeatherEntry.COLUMN_DATE + "?=", mSelectionArgs,
                         null, null, sortOrder);
                 break;
 
