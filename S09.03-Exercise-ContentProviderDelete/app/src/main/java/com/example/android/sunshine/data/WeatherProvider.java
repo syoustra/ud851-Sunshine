@@ -304,8 +304,10 @@ public class WeatherProvider extends ContentProvider {
      */
     @Override
     public int delete(@NonNull Uri uri, String selection, String[] selectionArgs) {
-        SQLiteDatabase db = mOpenHelper.getWritableDatabase();
+        SQLiteDatabase db = mOpenHelper.getWritableDatabase();                      //SOLUTION DOESN'T HAVE THIS SEPARATE
         int deletedRowCount;
+
+        if (null == selection) selection = "1";                                 //SOLUTION SAYS THIS IS NECESSARY FOR deletionCount
 
 //          TODO (2) Only implement the functionality, given the proper URI, to delete ALL rows in the weather table
         switch (sUriMatcher.match(uri)) {
@@ -316,6 +318,9 @@ public class WeatherProvider extends ContentProvider {
                 throw new UnsupportedOperationException("Unknown uri: " + uri);
         }
 
+        if (deletedRowCount != 0) {                                                     //FROM SOLUTION, TO NOTIFIY
+            getContext().getContentResolver().notifyChange(uri);
+        }
 
 //      TODO (3) Return the number of rows deleted
         return deletedRowCount;
