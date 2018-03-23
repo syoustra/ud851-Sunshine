@@ -21,6 +21,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.UriMatcher;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 
@@ -103,11 +104,34 @@ public class WeatherProvider extends ContentProvider {
     @Override
     public Cursor query(@NonNull Uri uri, String[] projection, String selection,
                         String[] selectionArgs, String sortOrder) {
-        throw new RuntimeException("Student, implement the query method!");
+
+        Cursor retCursor;
+        int match = sUriMatcher.match(uri);
+        final SQLiteDatabase db = mOpenHelper.getReadableDatabase();
 
 //      TODO (9) Handle queries on both the weather and weather with date URI
+        switch (match) {
+            case CODE_WEATHER:
+                retCursor = db.query(WeatherContract.WeatherEntry.TABLE_NAME,
+                        projection, selection, selectionArgs, null, null, sortOrder);
+                break;
+
+            case CODE_WEATHER_WITH_DATE:
+                String id = uri.getPathSegments(1);
+                String[] mSelectionArgs = new String[] {id};
+
+                retCursor = db.query(WeatherContract.WeatherEntry.TABLE_NAME,
+                        WeatherContract.WeatherEntry.COLUMN_DATE, "?=", mSelectionArgs,
+                        null, null, sortOrder);
+                break;
+
+            default:
+                throw new UnsupportedOperationException("Unknown uri: " + uri);
+        }
 
 //      TODO (10) Call setNotificationUri on the cursor and then return the cursor
+        retCursor.setNotificationUri(getContext().getContentResolver(), uri);
+        return retCursor;
     }
 
     /**
