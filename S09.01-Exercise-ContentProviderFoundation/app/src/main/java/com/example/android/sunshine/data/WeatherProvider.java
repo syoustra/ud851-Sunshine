@@ -37,18 +37,18 @@ import android.support.annotation.NonNull;
  */
 public class WeatherProvider extends ContentProvider {
 
-//  TODO (5) Create static constant integer values named CODE_WEATHER & CODE_WEATHER_WITH_DATE to identify the URIs this ContentProvider can handle
+//  COMPLETED (5) Create static constant integer values named CODE_WEATHER & CODE_WEATHER_WITH_DATE to identify the URIs this ContentProvider can handle
     public static final int CODE_WEATHER = 100;
     public static final int CODE_WEATHER_WITH_DATE = 101;
 
-//  TODO (7) Instantiate a static UriMatcher using the buildUriMatcher method
+//  COMPLETED (7) Instantiate a static UriMatcher using the buildUriMatcher method
 
     WeatherDbHelper mOpenHelper;
     private static final UriMatcher sUriMatcher = buildUriMatcher();
     private WeatherDbHelper mOpenHelper;                                                    //FROM SOLUTION
 
 
-//  TODO (6) Write a method called buildUriMatcher where you match URI's to their numeric ID
+//  COMPLETED (6) Write a method called buildUriMatcher where you match URI's to their numeric ID
     public static UriMatcher buildUriMatcher() {
         UriMatcher uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);                        //SOLUTION HAS final
                                                                     //SOLUTION ALSO MAKES final String authority FOR AUTHORITY
@@ -59,14 +59,14 @@ public class WeatherProvider extends ContentProvider {
         return uriMatcher;
     }
 
-//  TODO (1) Implement onCreate
+//  COMPLETED (1) Implement onCreate
     @Override
     public boolean onCreate() {
-//      TODO (2) Within onCreate, instantiate our mOpenHelper
+//      COMPLETED (2) Within onCreate, instantiate our mOpenHelper
         Context context = getContext();                                                 //SOLUTION COMBINES THESE TWO LINES
         mOpenHelper = new WeatherDbHelper(context);
 
-//      TODO (3) Return true from onCreate to signify success performing setup
+//      COMPLETED (3) Return true from onCreate to signify success performing setup
         return true;
     }
 
@@ -88,7 +88,7 @@ public class WeatherProvider extends ContentProvider {
         throw new RuntimeException("Student, you need to implement the bulkInsert mehtod!");
     }
 
-//  TODO (8) Provide an implementation for the query method
+//  COMPLETED (8) Provide an implementation for the query method
     /**
      * Handles query requests from clients. We will use this method in Sunshine to query for all
      * of our weather data as well as to query for the weather on a particular day.
@@ -112,7 +112,7 @@ public class WeatherProvider extends ContentProvider {
         int match = sUriMatcher.match(uri);                                         //SOLUTION DOES NOT USE SEPARATE VARIABLE
         final SQLiteDatabase db = mOpenHelper.getReadableDatabase();                //SOLUTION DOES NOT USE SEPARATE VARIABLE
 
-//      TODO (9) Handle queries on both the weather and weather with date URI
+//      COMPLETED (9) Handle queries on both the weather and weather with date URI
         switch (match) {
             case CODE_WEATHER:                                                      //SOLUTION SWITCHES ORDER; CODE IN { }
                 retCursor = db.query(WeatherContract.WeatherEntry.TABLE_NAME,
@@ -132,7 +132,7 @@ public class WeatherProvider extends ContentProvider {
                 throw new UnsupportedOperationException("Unknown uri: " + uri);
         }
 
-//      TODO (10) Call setNotificationUri on the cursor and then return the cursor
+//      COMPLETED (10) Call setNotificationUri on the cursor and then return the cursor
         retCursor.setNotificationUri(getContext().getContentResolver(), uri);
         return retCursor;
     }
