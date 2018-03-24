@@ -33,7 +33,7 @@ import com.example.android.sunshine.utilities.SunshineWeatherUtils;
  */
 class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ForecastAdapterViewHolder> {
 
-    //  TODO (14) Remove the mWeatherData declaration and the setWeatherData method
+    //  COMPLETED (14) Remove the mWeatherData declaration and the setWeatherData method
     //  COMPLETED (1) Declare a private final Context field called mContext
     private final Context mContext;
 
@@ -132,8 +132,8 @@ class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ForecastAdapt
      */
     @Override
     public int getItemCount() {
-//      TODO (9) Delete the current body of getItemCount
-//      TODO (10) If mCursor is null, return 0. Otherwise, return the count of mCursor
+//      COMPLETED (9) Delete the current body of getItemCount
+//      COMPLETED (10) If mCursor is null, return 0. Otherwise, return the count of mCursor
         if (null == mCursor) return 0;
         return mCursor.getCount();
     }
@@ -150,8 +150,8 @@ class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ForecastAdapt
         notifyDataSetChanged();
     }
 
-//  TODO (11) Create a new method that allows you to swap Cursors.
-//      TODO (12) After the new Cursor is set, call notifyDataSetChanged
+//  COMPLETED (11) Create a new method that allows you to swap Cursors.
+//      COMPLETED (12) After the new Cursor is set, call notifyDataSetChanged
     public void swapCursor(Cursor newCursor) {
         mCursor = newCursor;
         notifyDataSetChanged();
@@ -179,7 +179,7 @@ class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ForecastAdapt
          */
         @Override
         public void onClick(View v) {
-            //  TODO (13) Instead of passing the String from the data array, use the weatherSummary text!
+            //  COMPLETED (13) Instead of passing the String from the data array, use the weatherSummary text!
 //            int adapterPosition = getAdapterPosition();
 //            String weatherForDay = mWeatherData[adapterPosition];
             mClickHandler.onClick(weatherSummary.toString());
