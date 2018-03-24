@@ -75,7 +75,7 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
 //  COMPLETED (10) Remove the mWeatherDisplay TextView declaration
 
     //  COMPLETED (11) Declare TextViews for the date, description, high, low, humidity, wind, and pressure
-    private TextView mDate;
+    private TextView mDate;                                                         //SOLUTION HAS THESE AS mDateView, ETC
     private TextView mDescription;
     private TextView mHigh;
     private TextView mLow;
@@ -102,7 +102,7 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
         mUri = getIntent().getData();
 
 //      COMPLETED (17) Throw a NullPointerException if that URI is null
-        if (mUri == null) {
+        if (mUri == null) {                                                     //SOLUTION HAS ON ONE LINE WITHOUT { }
             throw new NullPointerException("URI cannot be null");
         }
 //      TODO (35) Initialize the loader for DetailActivity
@@ -208,7 +208,8 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
         mDate.setText(stringDate);
 
 //      TODO (27) Display the weather description (using SunshineWeatherUtils)
-        String stringCondition = SunshineWeatherUtils.getStringForWeatherCondition(this, INDEX_WEATHER_CONDITION_ID);
+        int intConditionID = data.getInt(INDEX_WEATHER_CONDITION_ID);
+        String stringCondition = SunshineWeatherUtils.getStringForWeatherCondition(this, intConditionID);
         mDescription.setText(stringCondition);
 
 //      TODO (28) Display the high temperature
@@ -223,7 +224,7 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
 
 //      TODO (30) Display the humidity
         float floatHumidity = data.getFloat(INDEX_WEATHER_HUMIDITY);
-        String stringHumidity = getString(INDEX_WEATHER_HUMIDITY, floatHumidity);
+        String stringHumidity = getString(R.string.format_humidity, floatHumidity);
         mHumidity.setText(stringHumidity);
 
 //      TODO (31) Display the wind speed and direction
@@ -234,7 +235,7 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
 
 //      TODO (32) Display the pressure
         float floatPressure = data.getFloat(INDEX_WEATHER_PRESSURE);
-        String stringPressure = getString(INDEX_WEATHER_PRESSURE, floatPressure);
+        String stringPressure = getString(R.string.format_pressure, floatPressure);
         mPressure.setText(stringPressure);
 
 //      TODO (33) Store a forecast summary in mForecastSummary

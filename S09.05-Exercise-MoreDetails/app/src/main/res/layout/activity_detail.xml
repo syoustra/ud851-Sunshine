@@ -19,8 +19,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:padding="8dp">
-
+                                                                        <!--SOLUTION GIVES EACH TEXTVIEW TOOLS AND STYLE -->
     <!-- COMPLETED (2) Remove the tv_display_weather TextView -->
     <!-- Text that describes the weather summary for a given day -->
     <!-- COMPLETED (3) Add a TextView for the selected day's date -->
