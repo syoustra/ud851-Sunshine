@@ -258,7 +258,7 @@ public class MainActivity extends AppCompatActivity implements
         mForecastAdapter.swapCursor(null);
     }
 
-    //  TODO (38) Refactor onClick to accept a long instead of a String as its parameter
+    //  COMPLETED (38) Refactor onClick to accept a long instead of a String as its parameter
     /**
      * This method is for responding to clicks from our list.
      *
@@ -266,7 +266,7 @@ public class MainActivity extends AppCompatActivity implements
      */
     @Override
     public void onClick(long date) {
-//      TODO (39) Refactor onClick to build a URI for the clicked date and and pass it with the Intent using setData
+//      COMPLETED (39) Refactor onClick to build a URI for the clicked date and and pass it with the Intent using setData
         Intent weatherDetailIntent = new Intent(MainActivity.this, DetailActivity.class);
         Uri uriForDateClicked = WeatherContract.WeatherEntry.buildWeatherUriWithDate(date);
         weatherDetailIntent.setData(uriForDateClicked);
