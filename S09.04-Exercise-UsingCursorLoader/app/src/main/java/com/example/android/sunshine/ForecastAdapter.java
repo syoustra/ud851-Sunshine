@@ -107,7 +107,7 @@ class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ForecastAdapt
         mCursor.moveToPosition(position);
 
         long dateInMillis = mCursor.getLong(MainActivity.INDEX_WEATHER_DATE);
-        String dateString = SunshineDateUtils.getFriendlyDateString(mContext, dateInMillis, true);
+        String dateString = SunshineDateUtils.getFriendlyDateString(mContext, dateInMillis, false);
 
         int weatherId = mCursor.getInt(MainActivity.INDEX_WEATHER_CONDITION_ID);
         String description = SunshineWeatherUtils.getStringForWeatherCondition(mContext, weatherId);
@@ -145,10 +145,7 @@ class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ForecastAdapt
      *
      * @param weatherData The new weather data to be displayed.
      */
-    public void setWeatherData(String[] weatherData) {
-        mWeatherData = weatherData;
-        notifyDataSetChanged();
-    }
+
 
 //  COMPLETED (11) Create a new method that allows you to swap Cursors.
 //      COMPLETED (12) After the new Cursor is set, call notifyDataSetChanged
@@ -180,9 +177,7 @@ class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ForecastAdapt
         @Override
         public void onClick(View v) {
             //  COMPLETED (13) Instead of passing the String from the data array, use the weatherSummary text!
-//            int adapterPosition = getAdapterPosition();
-//            String weatherForDay = mWeatherData[adapterPosition];
-            mClickHandler.onClick(weatherSummary.toString());
+           mClickHandler.onClick(weatherSummary.getText().toString());          //SOLUTION SETS weatherForDay AS summaryTextToString
         }
     }
 }
