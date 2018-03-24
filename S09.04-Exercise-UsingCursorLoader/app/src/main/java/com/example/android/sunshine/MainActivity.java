@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity implements
          */
         mRecyclerView.setHasFixedSize(true);
 
-//      TODO (4) Pass in this again as the ForecastAdapter now requires a Context
+//      COMPLETED (4) Pass in this again as the ForecastAdapter now requires a Context
         /*
          * The ForecastAdapter is responsible for linking our weather data with the Views that
          * will end up displaying our weather data.
