@@ -9,7 +9,7 @@ public class SunshineSyncIntentService extends IntentService {
 
     //  TODO (6) Create a constructor that calls super and passes the name of this class
 
-    public SunshineSyncIntentService(String SunshineSyncIntentService) {
+    public SunshineSyncIntentService() {
         super("SunshineSyncIntentService");
     }
 
