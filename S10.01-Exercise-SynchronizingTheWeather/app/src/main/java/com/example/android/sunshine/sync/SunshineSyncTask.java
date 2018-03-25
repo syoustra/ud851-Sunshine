@@ -1,3 +1,5 @@
+package com.example.android.sunshine.sync;
+
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
@@ -23,7 +25,7 @@ public class SunshineSyncTask {
             if (weatherValues != null && weatherValues.length != 0) {
                 ContentResolver sunshineContentResolver = context.getContentResolver();
                 sunshineContentResolver.delete(WeatherContract.WeatherEntry.CONTENT_URI, null, null);
-                sunshineContentResolver.bulkInsert(WeatherContract.WeatherEntry, weatherValues);
+                sunshineContentResolver.bulkInsert(WeatherContract.WeatherEntry.CONTENT_URI, weatherValues);
             }
 
         } catch (Exception e) {
