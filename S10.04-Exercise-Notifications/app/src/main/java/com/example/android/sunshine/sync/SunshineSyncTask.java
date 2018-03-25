@@ -76,10 +76,10 @@ public class SunshineSyncTask {
                         WeatherContract.WeatherEntry.CONTENT_URI,
                         weatherValues);
 
-//              TODO (13) Check if notifications are enabled
+//              COMPLETED (13) Check if notifications are enabled
                 boolean notificationsEnabled = SunshinePreferences.areNotificationsEnabled(context);
 
-//              TODO (14) Check if a day has passed since the last notification
+//              COMPLETED (14) Check if a day has passed since the last notification
                 long timeSinceLastNotification = SunshinePreferences.getEllapsedTimeSinceLastNotification(context);
                 boolean oneDayPassedSinceLastNotification = false;
                 if (timeSinceLastNotification >= DateUtils.DAY_IN_MILLIS) {
@@ -89,7 +89,7 @@ public class SunshineSyncTask {
                     NotificationUtils.notifyUserOfNewWeather(context);
                 }
 
-//              TODO (15) If more than a day have passed and notifications are enabled, notify the user
+//              COMPLETED (15) If more than a day have passed and notifications are enabled, notify the user
 
             /* If the code reaches this point, we have successfully performed our sync */
 
