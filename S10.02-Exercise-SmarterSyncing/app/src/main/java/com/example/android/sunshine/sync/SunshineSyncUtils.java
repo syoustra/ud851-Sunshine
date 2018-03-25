@@ -28,19 +28,19 @@ import com.example.android.sunshine.data.WeatherContract;
 
 public class SunshineSyncUtils {
 
-//  TODO (1) Declare a private static boolean field called sInitialized
+//  COMPLETED (1) Declare a private static boolean field called sInitialized
     private static boolean sInitialized;
 
-    //  TODO (2) Create a synchronized public static void method called initialize
+    //  COMPLETED (2) Create a synchronized public static void method called initialize
     synchronized public static void initialize (@NonNull final Context context) {
 
-        //  TODO (3) Only execute this method body if sInitialized is false
+        //  COMPLETED (3) Only execute this method body if sInitialized is false
         if (sInitialized) return;
 
-        //  TODO (4) If the method body is executed, set sInitialized to true
+        //  COMPLETED (4) If the method body is executed, set sInitialized to true
         sInitialized = true;
 
-        //  TODO (5) Check to see if our weather ContentProvider is empty
+        //  COMPLETED (5) Check to see if our weather ContentProvider is empty
         new AsyncTask<Void, Void, Void>() {
             @Override
             protected Void doInBackground(Void... voids) {
@@ -51,7 +51,7 @@ public class SunshineSyncUtils {
                 Cursor cursor = context.getContentResolver().query(forecastQueryUri,
                         projectionColumns, selectionStatement, null, null);
 
-                //  TODO (6) If it is empty or we have a null Cursor, sync the weather now!
+                //  COMPLETED (6) If it is empty or we have a null Cursor, sync the weather now!
                 if (cursor == null || cursor.getCount() == 0) {
                     startImmediateSync(context);
                 }
