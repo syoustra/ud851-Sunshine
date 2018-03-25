@@ -13,7 +13,7 @@ package com.example.android.sunshine.sync;/*
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-// TODO (2) Make sure you've imported the jobdispatcher.JobService, not job.JobService
+// COMPLETED (2) Make sure you've imported the jobdispatcher.JobService, not job.JobService
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -22,14 +22,14 @@ import com.example.android.sunshine.sync.SunshineSyncTask;
 import com.firebase.jobdispatcher.JobParameters;
 import com.firebase.jobdispatcher.JobService;
 
-// TODO (3) Add a class called SunshineFirebaseJobService that extends jobdispatcher.JobService
+// COMPLETED (3) Add a class called SunshineFirebaseJobService that extends jobdispatcher.JobService
 public class SunshineFirebaseJobService extends JobService {
 
-//  TODO (4) Declare an ASyncTask field called mFetchWeatherTask
+//  COMPLETED (4) Declare an ASyncTask field called mFetchWeatherTask
     private AsyncTask<Void, Void, Void> mFetchWeatherTask;
 
 
-//  TODO (5) Override onStartJob and within it, spawn off a separate ASyncTask to sync weather data
+//  COMPLETED (5) Override onStartJob and within it, spawn off a separate ASyncTask to sync weather data
 
     @Override
     public boolean onStartJob(final JobParameters job) {
@@ -43,15 +43,17 @@ public class SunshineFirebaseJobService extends JobService {
 
             @Override
             protected void onPostExecute(Void aVoid) {
-//              TODO (6) Once the weather data is sync'd, call jobFinished with the appropriate arguments
+//              COMPLETED (6) Once the weather data is sync'd, call jobFinished with the appropriate arguments
                 jobFinished(job, false);
             }
         }
-        return false;
+
+        mFetchWeatherTask.execute();
+        return true;
     }
 
 
-//  TODO (7) Override onStopJob, cancel the ASyncTask if it's not null and return true
+//  COMPLETED (7) Override onStopJob, cancel the ASyncTask if it's not null and return true
 
 
     @Override
