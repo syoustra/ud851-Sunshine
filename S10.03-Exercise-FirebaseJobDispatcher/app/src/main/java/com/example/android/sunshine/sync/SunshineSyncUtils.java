@@ -34,17 +34,17 @@ import java.util.concurrent.TimeUnit;
 
 public class SunshineSyncUtils {
 
-//  TODO (10) Add constant values to sync Sunshine every 3 - 4 hours
+//  COMPLETED (10) Add constant values to sync Sunshine every 3 - 4 hours
 
     private static boolean sInitialized;
     private static final int SYNC_INTERVAL_HOURS = 3;
     private static final int SYNC_INTERVAL_SECONDS = (int) TimeUnit.HOURS.toSeconds(SYNC_INTERVAL_HOURS);
     private static final int SYNC_FLEXTIME_SECONDS = SYNC_INTERVAL_SECONDS / 3;
 
-//  TODO (11) Add a sync tag to identify our sync job
+//  COMPLETED (11) Add a sync tag to identify our sync job
     private static final String SUNSHINE_SYNC_TAG = "sunshine-sync"
 
-//  TODO (12) Create a method to schedule our periodic weather sync
+//  COMPLETED (12) Create a method to schedule our periodic weather sync
     static void scheduleFirebaseJobDispatcherSync (@NonNull final Context context)
 
     /**
@@ -64,7 +64,7 @@ public class SunshineSyncUtils {
 
         sInitialized = true;
 
-//      TODO (13) Call the method you created to schedule a periodic weather sync
+//      COMPLETED (13) Call the method you created to schedule a periodic weather sync
         Driver driver = new GooglePlayDriver(context);
         FirebaseJobDispatcher dispatcher = new FirebaseJobDispatcher(driver);
 
