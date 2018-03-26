@@ -55,7 +55,7 @@
         <!-- COMPLETED (33) Include the extra_weather_details layout -->
         <include
             android:id="@+id/extra_details"
-            layout="extra_weather_details"
+            layout="@layout/extra_details"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1" />

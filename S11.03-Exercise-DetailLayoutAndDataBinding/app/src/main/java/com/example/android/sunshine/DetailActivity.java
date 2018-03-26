@@ -342,7 +342,7 @@ public class DetailActivity extends AppCompatActivity implements
 //      COMPLETED (12) Use mDetailBinding to display the humidity and set the content description
         /* Set the text to display the humidity */
         mDetailBinding.extraDetails.humidity.setText(humidityString);
-        mDetailBinding.extraDetails.humitity.setContentDescription(humidityA11y);
+        mDetailBinding.extraDetails.humidityLabel.setContentDescription(humidityA11y);
 
 //      COMPLETED (19) Set the content description of the humidity label to the humidity a11y String
         mDetailBinding.extraDetails.humidityLabel.setContentDescription(humidityA11y);
