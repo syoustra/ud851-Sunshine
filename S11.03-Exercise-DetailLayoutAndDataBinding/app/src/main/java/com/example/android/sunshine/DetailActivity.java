@@ -30,6 +30,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.example.android.sunshine.data.WeatherContract;
+import com.example.android.sunshine.databinding.ActivityDetailBinding;
 import com.example.android.sunshine.utilities.SunshineDateUtils;
 import com.example.android.sunshine.utilities.SunshineWeatherUtils;
 
@@ -87,13 +88,6 @@ public class DetailActivity extends AppCompatActivity implements
     private Uri mUri;
 
 //  TODO (2) Remove all the TextView declarations
-    private TextView mDateView;
-    private TextView mDescriptionView;
-    private TextView mHighTemperatureView;
-    private TextView mLowTemperatureView;
-    private TextView mHumidityView;
-    private TextView mWindView;
-    private TextView mPressureView;
 
     /*
      * This field is used for data binding. Normally, we would have to call findViewById many
@@ -103,6 +97,7 @@ public class DetailActivity extends AppCompatActivity implements
      * programmatically without cluttering up the code with findViewById.
      */
 //  TODO (3) Declare an ActivityDetailBinding field called mDetailBinding
+    private ActivityDetailBinding mDetailBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
