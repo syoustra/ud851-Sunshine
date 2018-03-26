@@ -77,7 +77,7 @@
 
     <TextView
         android:id="@+id/low_temperature"
-        android:layout_width="@dimen/forecast_temperature_space"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:gravity="end"
         android:textSize="@dimen/forecast_text_size"
