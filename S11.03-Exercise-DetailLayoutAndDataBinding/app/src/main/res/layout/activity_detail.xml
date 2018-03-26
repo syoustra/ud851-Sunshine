@@ -40,13 +40,26 @@
         <!-- COMPLETED (26) Surround the entire layout with <layout/> tags for data binding -->
         <!-- COMPLETED (27) Using ConstraintLayout, create the primary weather info layout -->
 
-        <!-- TODO (32) Include the primary_weather_info layout -->
+        <!-- COMPLETED (32) Include the primary_weather_info layout -->
+        <include
+            android:id="@+id/primary_info"
+            layout="@layout/primary_weather_info"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            />
 
-
-        <!-- TODO (28) Create a layout called extra_weather_details.xml -->
-        <!-- TODO (29) Surround the entire layout with <layout/> tags for data binding -->
+        <!-- COMPLETED (28) Create a layout called extra_weather_details.xml -->
+        <!-- COMPLETED (29) Surround the entire layout with <layout/> tags for data binding -->
         <!-- TODO (30) Using ConstraintLayout, create the extra weather details layout -->
-        <!-- TODO (33) Include the extra_weather_details layout -->
+        <!-- COMPLETED (33) Include the extra_weather_details layout -->
+        <include
+            android:id="@+id/extra_details"
+            layout="extra_weather_details"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
     </LinearLayout>
 
 
