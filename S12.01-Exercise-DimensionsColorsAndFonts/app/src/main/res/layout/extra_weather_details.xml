@@ -14,9 +14,9 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<!-- TODO (4) Color the background and label text color appropriately -->
-<!-- TODO (5) Replace dimension values with @dimen resources -->
-<!-- TODO (6) Use sans-serif font family for label TextViews -->
+<!-- COMPLETED (4) Color the background and label text color appropriately -->
+<!-- COMPLETED (5) Replace dimension values with @dimen resources -->
+<!-- COMPLETED (6) Use sans-serif font family for label TextViews -->
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools">
