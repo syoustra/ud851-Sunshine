@@ -337,7 +337,7 @@ public class DetailActivity extends AppCompatActivity implements
         String humidityString = getString(R.string.format_humidity, humidity);
 
 //      COMPLETED (20) Create the content description for the humidity for a11y
-        String humidityA11y = getString(R.string.a11y_humidity, humidity);
+        String humidityA11y = getString(R.string.a11y_humidity, humidityString);
 
 //      COMPLETED (12) Use mDetailBinding to display the humidity and set the content description
         /* Set the text to display the humidity */
