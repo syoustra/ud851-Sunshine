@@ -88,7 +88,7 @@ public class DetailActivity extends AppCompatActivity implements
     /* The URI that is used to access the chosen day's weather details */
     private Uri mUri;
 
-//  TODO (2) Remove all the TextView declarations
+//  COMPLETED (2) Remove all the TextView declarations
 
     /*
      * This field is used for data binding. Normally, we would have to call findViewById many
@@ -97,7 +97,7 @@ public class DetailActivity extends AppCompatActivity implements
      * in onCreate of this class. Then, we can access all of the Views in our layout
      * programmatically without cluttering up the code with findViewById.
      */
-//  TODO (3) Declare an ActivityDetailBinding field called mDetailBinding
+//  COMPLETED (3) Declare an ActivityDetailBinding field called mDetailBinding
     private ActivityDetailBinding mDetailBinding;
 
     @Override
