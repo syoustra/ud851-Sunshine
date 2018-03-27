@@ -33,11 +33,11 @@
     </style>
 
     <!-- COMPLETED (2) Create a style for MainActivity called AppTheme.Forecast that uses our custom ActionBar style -->
-    <style name="AppTheme.Forecast">
+    <style name="AppTheme.Forecast" parent="@style/AppTheme">
         <item name="actionBarStyle">@style/ActionBar.Solid.Sunshine.NoTitle</item>
     </style>
 
-    <!-- TODO (3) Create the DetailLabel style -->
+    <!-- COMPLETED (3) Create the DetailLabel style -->
     <style name="DetailLabel" parent="@style/TextAppearance.AppCompat.Title">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -46,7 +46,7 @@
     </style>
 
 
-    <!-- TODO (4) Create the ExtraWeatherMeasurement style -->
+    <!-- COMPLETED (4) Create the ExtraWeatherMeasurement style -->
     <style name="ExtraWeatherMeasurement" parent="@style/TextAppearance.AppCompat.Headline">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
