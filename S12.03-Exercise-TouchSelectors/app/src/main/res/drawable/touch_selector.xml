@@ -6,5 +6,7 @@
 
     <item android:drawable="@android:color/background_light" />
 
+    <!-- SOLUTION USES A TRUE/FALSE, THEN LISTS LOTS OF OPTIONS .... perhaps to accommodate different background/themes? -->
+
 
 </selector>
