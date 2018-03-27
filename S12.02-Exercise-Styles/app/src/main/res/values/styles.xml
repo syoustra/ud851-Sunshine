@@ -38,8 +38,19 @@
     </style>
 
     <!-- TODO (3) Create the DetailLabel style -->
+    <style name="DetailLabel" parent="@style/TextAppearance.AppCompat.Title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/detail_accent_label</item>
+    </style>
 
 
     <!-- TODO (4) Create the ExtraWeatherMeasurement style -->
+    <style name="ExtraWeatherMeasurement" parent="@style/TextAppearance.AppCompat.Headline">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
 
 </resources>
